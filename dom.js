@@ -6,18 +6,17 @@ const initializeiHooverButton = document.getElementById(
   "initialize-iHoover-button"
 );
 const setInstructionsButton = document.getElementById("setInstructions-button");
+const reinitializeButton = document.getElementById("reinitialize-button");
 const feedback = document.getElementById("feedback-p");
-const gridW = parseInt(room.getAttribute("width"));
-const gridH = parseInt(room.getAttribute("height"));
 let newiHoover;
 
 initializeRoom = () => {
   const width = parseInt(document.getElementById("room-width-input").value);
   const height = parseInt(document.getElementById("room-height-input").value);
 
-  if (width <= 0 || height <= 0 || width >= 100 || height >= 100) {
+  if (width < 0 || height < 0 || width >= 100 || height >= 100) {
     feedback.innerHTML =
-      "Width and height must be more than 0 and less than 100";
+      "Width and height must be equal or more than 0 and less than 100";
   } else {
     if (width && height) {
       room.style.display = "grid";
@@ -35,8 +34,9 @@ initializeRoom = () => {
       for (let j = 0; j <= width - 1; j++) {
         var newCell = document.createElement("div");
         newCell.className = "grid-block";
-        newCell.id = "x:" + j + "y:" + i;
+        newCell.id = "x:" + j + "y:" + (height - 1 - i);
         room.appendChild(newCell);
+        newCell.innerHTML = newCell.id;
       }
     }
   }
@@ -45,6 +45,8 @@ initializeRoom = () => {
 initializeiHoover = () => {
   const xiHoover = parseInt(document.getElementById("iHoover-x-input").value);
   const yiHoover = parseInt(document.getElementById("i-Hoover-y-input").value);
+  const gridW = parseInt(room.getAttribute("width"));
+  const gridH = parseInt(room.getAttribute("height"));
 
   if (xiHoover < 0 || yiHoover < 0 || xiHoover > gridW || yiHoover > gridH) {
     feedback.style.display = "block";
@@ -59,10 +61,13 @@ initializeiHoover = () => {
 };
 
 setInstructions = () => {
+  const gridW = parseInt(room.getAttribute("width"));
+  const gridH = parseInt(room.getAttribute("height"));
   const instructionsInput = document
     .getElementById("instructions-input")
     .value.toUpperCase()
     .split("");
+
   const allowedInstructions = ["A", "D", "G"];
   for (let l = 0; l < instructionsInput.length; l++) {
     if (!allowedInstructions.includes(instructionsInput[l])) {
@@ -80,16 +85,18 @@ setInstructions = () => {
       const actualCell = document.getElementById(
         `x:${newiHoover.x}y:${newiHoover.y}`
       );
-      actualCell.style.backgroundColor = "red";
+      if (actualCell) actualCell.style.backgroundColor = "red";
     }
   }
+  console.log(typeof newiHoover.x);
   if (
     newiHoover.x < 0 ||
     newiHoover.y < 0 ||
     newiHoover.x > gridW ||
     newiHoover > gridH
   ) {
-    alert("Oups... iHoover went into a wall");
+    feedback.style.display = "block";
+    feedback.innerHTML = "Oups... iHoover went into a wall";
   } else {
     feedback.style.display = "block";
     feedback.style.color = "green";
@@ -100,3 +107,4 @@ setInstructions = () => {
 initializeGridButton.onclick = initializeRoom;
 initializeiHooverButton.onclick = initializeiHoover;
 setInstructionsButton.onclick = setInstructions;
+reinitializeButton.onclick = window.location.reload;
