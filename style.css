@@ -1,0 +1,55 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#feedback-p {
+  color: red;
+}
+
+#control-panel-div h2 {
+  margin: 10px;
+  padding: 10px;
+}
+
+#control-content {
+  display: flex;
+  width: 95vw;
+  margin: auto;
+}
+
+#control-content div {
+  width: 30%;
+  border: 2px solid grey;
+  margin: 10px;
+  padding: 10px;
+}
+
+#main-room {
+  display: none;
+  border: 1px black solid;
+  height: 90vh;
+  width: 90vw;
+  margin: auto;
+  column-gap: 5px;
+  row-gap: 5px;
+}
+
+.grid-block {
+  background-color: lightskyblue;
+  width: 100%;
+  height: 100%;
+}
+
+#iHoover-start-div {
+  display: none;
+}
+
+#instructions-div {
+  display: none;
+}
+
+#feedback-container {
+  margin: 10px;
+  padding: 10px;
+}

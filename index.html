@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>iHoover Prototype</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="main-container">
+      <div id="control-panel-div">
+        <h2>Control Panel:</h2>
+        <div id="control-content">
+          <div id="room-size-div">
+            <h3>Please enter the room's size:</h3>
+            <p>Width: <input type="number" id="room-width-input" /></p>
+            <p>Height: <input type="number" id="room-height-input" /></p>
+            <button id="initialize-grid-button">Initialize Grid</button>
+          </div>
+          <div id="iHoover-start-div">
+            <h3>Please enter the starting coordonates of the iHoover:</h3>
+            <p>X: <input type="number" id="iHoover-x-input" /></p>
+            <p>Y: <input type="number" id="i-Hoover-y-input" /></p>
+            <button id="initialize-iHoover-button">
+              Initialize iHoover-Proto
+            </button>
+          </div>
+          <div id="instructions-div">
+            <h3>
+              Please enter instructions: A (Go Forward), G (Go Left), D(Go
+              Right)
+            </h3>
+            <p>Instructions: <input type="text" id="instructions-input" /></p>
+            <button id="setInstructions-button">Launch iHoover</button>
+          </div>
+        </div>
+      </div>
+      <div id="feedback-container">
+        <h3>Room preview:</h3>
+        <p id="feedback-p"></p>
+      </div>
+      <div id="main-room"></div>
+    </div>
+    <script src="./dom.js"></script>
+    <script src="./class.js"></script>
+  </body>
+</html>
