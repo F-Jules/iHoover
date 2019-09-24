@@ -14,9 +14,6 @@ class iHooverProto {
       case "A":
         this.goForward();
     }
-    console.log(
-      `Instructions completed: iHooverProto's positions are: ${this.x} - ${this.y} / Facing: ${this.facing}`
-    );
   }
 
   goForward() {
@@ -64,19 +61,19 @@ class iHooverProto {
   turnRight() {
     switch (this.facing) {
       case "N":
-        this.facing = "W";
+        this.facing = "E";
         this.gettingiHooverFacing();
         break;
       case "E":
-        this.facing = "N";
-        this.gettingiHooverFacing();
-        break;
-      case "W":
         this.facing = "S";
         this.gettingiHooverFacing();
         break;
+      case "W":
+        this.facing = "N";
+        this.gettingiHooverFacing();
+        break;
       case "S":
-        this.facing = "E";
+        this.facing = "W";
         this.gettingiHooverFacing();
         break;
     }

@@ -88,7 +88,6 @@ setInstructions = () => {
       if (actualCell) actualCell.style.backgroundColor = "red";
     }
   }
-  console.log(typeof newiHoover.x);
   if (
     newiHoover.x < 0 ||
     newiHoover.y < 0 ||
@@ -104,7 +103,10 @@ setInstructions = () => {
   }
 };
 
+reinitialize = () => {
+  window.location.reload();
+};
 initializeGridButton.onclick = initializeRoom;
 initializeiHooverButton.onclick = initializeiHoover;
 setInstructionsButton.onclick = setInstructions;
-reinitializeButton.onclick = window.location.reload;
+reinitializeButton.onclick = reinitialize;
