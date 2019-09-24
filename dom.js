@@ -14,9 +14,9 @@ initializeRoom = () => {
   const width = parseInt(document.getElementById("room-width-input").value);
   const height = parseInt(document.getElementById("room-height-input").value);
 
-  if (width < 0 || height < 0 || width >= 100 || height >= 100) {
+  if (width <= 0 || height <= 0 || width > 40 || height > 40) {
     feedback.innerHTML =
-      "Width and height must be equal or more than 0 and less than 100";
+      "Width and height must be equal or more than 0 and less or equal than 40";
   } else {
     if (width && height) {
       room.style.display = "grid";
@@ -37,6 +37,7 @@ initializeRoom = () => {
         newCell.id = "x:" + j + "y:" + (height - 1 - i);
         room.appendChild(newCell);
         newCell.innerHTML = newCell.id;
+        newCell.style.fontSize = "7px";
       }
     }
   }
